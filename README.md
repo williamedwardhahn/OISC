@@ -1,3 +1,7 @@
+### Code
+https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing
+
+
 # OISC
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language. The purpose of this language is to perform arithmetic operations and manipulate data using a simple stack-based system.
 
@@ -52,11 +56,11 @@ The simplicity of postfix notation greatly simplifies the compiler for the 'code
 
 In summary, the 'code.ai' language implementation demonstrates how a simple stack-based language with a single native instruction can be used to perform complex operations using subroutine threading, postfix notation, and a straightforward compiler. This implementation serves as a useful introduction to stack-based languages and the OISC concept for beginners in programming.
 
-### Code
-https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing
 
 ## Reading List
+(Starting Forth)[https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Starting%20FORTH%20Introduction%20to%20the%20FORTH%20Language%20and%20Operating%20System%20for%20Beginners%20and%20Professionals%20(Leo%20Brodie).pdf]
 
+(Thinking Forth)[https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Thinking%20Forth%20A%20Language%20and%20Philosophy%20for%20Solving%20Problems%20(Leo%20Brodie).pdf]
 
 
 ### Notes
