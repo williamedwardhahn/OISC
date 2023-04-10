@@ -5,7 +5,6 @@
 # OISC
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language. The purpose of this language is to perform arithmetic operations and manipulate data using a simple stack-based system.
 
-In this guide, we'll provide an extensive explanation of the code, assuming that the reader is new to coding. We'll first explain the basics of stack-based languages and the OISC concept, then dive into the specific implementation details of the code, and finally discuss threading and the simplicity of the compiler.
 
 # Stack-based languages and OISC
 A stack-based language is a type of programming language that uses a stack data structure to store and manipulate data. A stack is a Last In, First Out (LIFO) data structure, meaning that the most recently added item is the first one to be removed. In a stack-based language, operands are pushed onto the stack, and operations are performed by popping operands from the stack, processing them, and then pushing the result back onto the stack.
@@ -19,9 +18,8 @@ An OISC is a theoretical computer architecture that has only one native instruct
 The 'code.ai' language is a custom stack-based language inspired by Forth. Each word in the language is a subroutine that is called using the machine code "#,W", where "#" is a placeholder for the word that is looked up in the dictionary D to get the location in memory where the subroutine machine code is located. The compiler builds a threaded interpreted language style program that is loaded on the memory tape M and then executed. This is an example of subroutine threading.
 
 ## The main components of the code include:
-
-Loading the 'code.ai' language definitions from a file.
-Defining helper functions for dictionary lookups, code recoding, and setting up the memory tape.
+* Loading the 'code.ai' language definitions from a file.
+* Defining helper functions for dictionary lookups, code recoding, and setting up the memory tape.
 Compiling a given program into a series of instructions and operands.
 Executing the program using the custom virtual machine.
 Loading the language definitions
