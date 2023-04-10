@@ -58,9 +58,11 @@ In summary, the 'code.ai' language implementation demonstrates how a simple stac
 
 
 ## Reading List
-(Starting Forth)[https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Starting%20FORTH%20Introduction%20to%20the%20FORTH%20Language%20and%20Operating%20System%20for%20Beginners%20and%20Professionals%20(Leo%20Brodie).pdf]
+[Starting Forth](https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Starting%20FORTH%20Introduction%20to%20the%20FORTH%20Language%20and%20Operating%20System%20for%20Beginners%20and%20Professionals%20(Leo%20Brodie).pdf)
 
-(Thinking Forth)[https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Thinking%20Forth%20A%20Language%20and%20Philosophy%20for%20Solving%20Problems%20(Leo%20Brodie).pdf]
+[Thinking Forth](https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Thinking%20Forth%20A%20Language%20and%20Philosophy%20for%20Solving%20Problems%20(Leo%20Brodie).pdf)
+
+[More Books](https://github.com/williamedwardhahn/OISC/tree/main/Forth_Books)
 
 
 ### Notes
