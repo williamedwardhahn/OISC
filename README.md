@@ -1,5 +1,5 @@
-### Code
-https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing
+# OISC Code
+[MPCR OISC](https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing)
 
 
 # OISC
