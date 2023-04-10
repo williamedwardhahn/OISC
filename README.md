@@ -15,12 +15,11 @@ The main advantage of stack-based languages is their simplicity, as they often h
 The 'code.ai' language is a custom stack-based language inspired by Forth. Each word in the language is a subroutine that is called using the machine code "#,W", where "#" is a placeholder for the word that is looked up in the dictionary D to get the location in memory where the subroutine machine code is located. The compiler builds a threaded interpreted language style program that is loaded on the memory tape M and then executed. This is an example of subroutine threading.
 
 ## The main components of the code include:
-* Loading the 'code.ai' language definitions from a file.
-* Defining helper functions for dictionary lookups, code recoding, and setting up the memory tape.
+* The code begins by loading the 'code.ai' language definitions from a file named 'code.ai'. The load function reads the file line by line and stores the words and their corresponding machine codes into two NumPy arrays, words and codes.
+* Helper functions for dictionary lookups, code recoding, and setting up the memory tape.
 * Compiling a given program into a series of instructions and operands.
 * Executing the program using the custom virtual machine.
-* Loading the language definitions
-* The code begins by loading the 'code.ai' language definitions from a file named 'code.ai'. The load function reads the file line by line and stores the words and their corresponding machine codes into two NumPy arrays, words and codes.
+
 
 ## Helper functions
 The code defines several helper functions:
