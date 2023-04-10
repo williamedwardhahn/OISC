@@ -3,8 +3,7 @@
 
 
 # OISC
-This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language. The purpose of this language is to perform arithmetic operations and manipulate data using a simple stack-based system.
-
+This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language.
 
 # Stack-based languages and OISC
 A stack-based language is a type of programming language that uses a stack data structure to store and manipulate data. A stack is a Last In, First Out (LIFO) data structure, meaning that the most recently added item is the first one to be removed. In a stack-based language, operands are pushed onto the stack, and operations are performed by popping operands from the stack, processing them, and then pushing the result back onto the stack.
