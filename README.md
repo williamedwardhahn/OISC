@@ -20,18 +20,18 @@ The 'code.ai' language is a custom stack-based language inspired by Forth. Each 
 ## The main components of the code include:
 * Loading the 'code.ai' language definitions from a file.
 * Defining helper functions for dictionary lookups, code recoding, and setting up the memory tape.
-Compiling a given program into a series of instructions and operands.
-Executing the program using the custom virtual machine.
-Loading the language definitions
-The code begins by loading the 'code.ai' language definitions from a file named 'code.ai'. The load function reads the file line by line and stores the words and their corresponding machine codes into two NumPy arrays, words and codes.
+* Compiling a given program into a series of instructions and operands.
+* Executing the program using the custom virtual machine.
+* Loading the language definitions
+* The code begins by loading the 'code.ai' language definitions from a file named 'code.ai'. The load function reads the file line by line and stores the words and their corresponding machine codes into two NumPy arrays, words and codes.
 
 ## Helper functions
 The code defines several helper functions:
 
-##D(word): A dictionary lookup function that returns the index of the given word in the words array, or -1 if the word is not found.
-recode(codes): A function that recodes the given codes by replacing each word with its corresponding index in the words array.
-setup(program): A function that sets up the memory tape M by initializing it with the compiled 'code.ai' language and the given program.
-compile_program(X): A function that compiles a given program X into a series of instructions and operands, suitable for execution by the virtual machine.
+* D(word): A dictionary lookup function that returns the index of the given word in the words array, or -1 if the word is not found.
+* recode(codes): A function that recodes the given codes by replacing each word with its corresponding index in the words array.
+* setup(program): A function that sets up the memory tape M by initializing it with the compiled 'code.ai' language and the given program.
+* compile_program(X): A function that compiles a given program X into a series of instructions and operands, suitable for execution by the virtual machine.
 
 # Compiling the program
 The compile_program(X) function takes a program X written in the 'code.ai' language and converts it into a sequence of instructions and operands that the virtual machine can execute. The function iterates through each element of the program, checks if it is a number, a comma-separated pair, or a word from the language, and then appends the corresponding machine codes to the compiled program.
@@ -42,12 +42,12 @@ The run(M) function takes the memory tape M as input and executes the program us
 The virtual machine maintains two stacks: one for parameters (S) at location SL, and another for return addresses (W) at location WL. The copy-paste instruction is used to move values between memory locations, push and pop values to and from the stacks, and perform subroutine calls and returns.
 
 # Threading and the simplicity of the compiler
-Subroutine threading
+## Subroutine threading
 The 'code.ai' language uses subroutine threading, which means that each word in the language is treated as a subroutine (i.e., a sequence of instructions and operands that perform a specific task). When a word is called, the virtual machine jumps to the memory location where the subroutine's machine code is stored and begins executing it. The return address is pushed onto the return address stack (W) before the jump, and it is popped when the subroutine finishes executing, allowing the virtual machine to return to the original program.
 
 Subroutine threading simplifies the implementation of the language, as the compiler only needs to generate machine codes that call the appropriate subroutines for each word in the program.
 
-# Postfix notation and the simplicity of the compiler
+## Postfix notation and the simplicity of the compiler
 The 'code.ai' language uses postfix notation, also known as Reverse Polish Notation (RPN), which is a mathematical notation where operators follow their operands. In postfix notation, there is no need for parentheses to indicate the order of operations, and the notation naturally corresponds to the stack-based execution model of the virtual machine.
 
 The simplicity of postfix notation greatly simplifies the compiler for the 'code.ai' language, as there is no need to parse complex expressions or manage operator precedence. The compiler can focus on translating the words in the program into machine codes that manipulate the stacks and perform the desired operations.
@@ -78,7 +78,6 @@ https://learnxinyminutes.com/docs/forth/
 https://asciiflow.com/#/
 
 http://www.murphywong.net/hello/simple.htm
-
 
 http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm
 
