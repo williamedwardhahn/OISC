@@ -41,8 +41,8 @@ The run(M) function takes the memory tape M as input and executes the program us
 
 The virtual machine maintains two stacks: one for parameters (S) at location SL, and another for return addresses (W) at location WL. The copy-paste instruction is used to move values between memory locations, push and pop values to and from the stacks, and perform subroutine calls and returns.
 
-# Threading and the simplicity of the compiler
-## Subroutine threading
+
+# Subroutine threading
 The 'code.ai' language uses subroutine threading, which means that each word in the language is treated as a subroutine (i.e., a sequence of instructions and operands that perform a specific task). When a word is called, the virtual machine jumps to the memory location where the subroutine's machine code is stored and begins executing it. The return address is pushed onto the return address stack (W) before the jump, and it is popped when the subroutine finishes executing, allowing the virtual machine to return to the original program.
 
 Subroutine threading simplifies the implementation of the language, as the compiler only needs to generate machine codes that call the appropriate subroutines for each word in the program.
@@ -52,7 +52,7 @@ The 'code.ai' language uses postfix notation, also known as Reverse Polish Notat
 
 The simplicity of postfix notation greatly simplifies the compiler for the 'code.ai' language, as there is no need to parse complex expressions or manage operator precedence. The compiler can focus on translating the words in the program into machine codes that manipulate the stacks and perform the desired operations.
 
-In summary, the 'code.ai' language implementation demonstrates how a simple stack-based language with a single native instruction can be used to perform complex operations using subroutine threading, postfix notation, and a straightforward compiler. This implementation serves as a useful introduction to stack-based languages and the OISC concept for beginners in programming.
+In summary, the 'code.ai' language implementation demonstrates how a simple stack-based language with a single native instruction can be used to perform complex operations using subroutine threading, postfix notation, and a straightforward compiler. This implementation serves as a useful introduction to stack-based languages and the MPCR OISC concept.
 
 
 ## Reading List
