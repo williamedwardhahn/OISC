@@ -1,5 +1,5 @@
 # MPCR OISC - One Instruction Set Computer
-[MPCR OISC](https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing)
+[MPCR OISC Code Here](https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing)
 
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language.
 
