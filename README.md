@@ -1,3 +1,78 @@
+# One Instruction Set Computer (OISC) Emulator
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [The Complexity of Modern Computing](#the-complexity-of-modern-computing)
+3. [What is OISC?](#what-is-oisc)
+4. [Reducing Complexity with OISC](#reducing-complexity-with-oisc)
+5. [Implementation Details](#implementation-details)
+6. [Getting Started](#getting-started)
+7. [Further Reading](#further-reading)
+8. [Contributing & Support](#contributing--support)
+
+## Introduction
+In the modern era of computing, systems have grown increasingly complex, often built upon layers of abstractions with millions of lines of code. This complexity can lead to inefficiencies, vulnerabilities, and a steep learning curve for budding developers. The One Instruction Set Computer (OISC) Emulator aims to counter this trend by simplifying the essence of computing to its fundamental core, reducing what might take hundreds of millions of lines down to mere hundreds.
+
+## The Complexity of Modern Computing
+Modern computing systems, from operating systems to applications, have grown in complexity over the years. Software stacks are constructed upon multiple layers of code, libraries, and frameworks:
+
+- **Operating Systems**: OS like Windows, Linux, or macOS consist of millions of lines of code. They manage hardware, provide services, and serve as platforms for applications.
+- **Middleware and Libraries**: Between the OS and the applications, numerous libraries and middleware components handle everything from graphics rendering to database connections.
+- **Applications**: Even seemingly simple apps can have thousands to millions of lines of code, especially when considering the frameworks and libraries they are built upon.
+
+While this complexity has allowed for advanced functionalities, richer user experiences, and integration across diverse platforms, it also brings challenges:
+
+- **Security Vulnerabilities**: More code means more potential vulnerabilities. It's challenging to ensure every line of code is secure in vast systems.
+- **Maintenance Overhead**: As codebases grow, maintaining them becomes a significant challenge. Bugs are harder to trace, and improvements are more challenging to implement.
+- **Learning Curve**: For new developers, understanding a complex system can be daunting. The sheer volume of components, libraries, and dependencies can be overwhelming.
+
+## What is OISC?
+OISC stands for One Instruction Set Computer. It's a theoretical computing model that, as the name suggests, operates with a single instruction. The idea behind OISC is to simplify computing's core essence, stripping away layers of abstraction and complexity. In our implementation, the primary instruction is "copy-paste," a simple operation that can be combined in various ways to perform more complex tasks.
+
+## Reducing Complexity with OISC
+The OISC emulator provides an environment where the vastness of modern computing is distilled into its purest form. Here are the benefits:
+
+- **Simplicity**: With only one instruction, the architecture is straightforward to understand and work with.
+- **Efficiency**: Fewer instructions mean faster execution times and fewer resources used.
+- **Transparency**: The reduced complexity makes the entire process transparent. You see the entire process from input to output without layers of abstraction hiding the details.
+- **Educational Value**: For those learning about computer architecture, OISC offers a clean slate to understand the foundational principles without the distractions of modern architectures.
+
+## Implementation Details
+Our OISC emulator uses the `code.ai` language, a custom stack-based language inspired by Forth:
+
+- **Stack-based**: Operations are performed by manipulating a stack, a LIFO (Last In, First Out) data structure. 
+- **Memory-mapped operations**: Operations like addition, subtraction, and multiplication are achieved by reading from or writing to specific memory addresses.
+- **Subroutine Threading**: Each word in the language represents a subroutine, making the language extensible and modular.
+
+The provided code offers functions to load programs, compile them, set up the necessary environment, and run them on the OISC emulator.
+
+## Getting Started
+To get started with the OISC emulator:
+
+1. Clone the repository.
+2. Load the `code.ai` definitions by calling the `load` function.
+3. Compile your program using the `compile_program` function.
+4. Set up the environment using the `setup` function.
+5. Run your program on the emulator using the `run` function.
+
+Refer to the provided examples to see the OISC emulator in action.
+
+## Further Reading
+For those interested in diving deeper into stack-based languages, OISC, and the foundational principles of computing, refer to the following resources:
+
+- [Starting Forth](https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Starting%20FORTH%20Introduction%20to%20the%20FORTH%20Language%20and%20Operating%20System%20for%20Beginners%20and%20Professionals%20(Leo%20Brodie).pdf)
+- [Thinking Forth](https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Thinking%20Forth%20A%20Language%20and%20Philosophy%20for%20Solving%20Problems%20(Leo%20Brodie).pdf)
+- [More Books](https://github.com/williamedwardhahn/OISC/tree/main/Forth_Books)
+
+## Contributing & Support
+We welcome contributions to improve and extend the OISC emulator. If you find any issues or have suggestions, please open an issue on the repository. For direct support or queries, reach out to the maintainers.
+
+---
+
+By embracing the simplicity of OISC, we hope to inspire developers and enthusiasts to rethink the essence of computing, emphasizing clarity, efficiency, and understanding over layers of complexity.
+
+---
+
 # MPCR OISC - One Instruction Set Computer
 [MPCR OISC Code Here](https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing)
 
