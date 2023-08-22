@@ -37,6 +37,9 @@ Our OISC emulator uses the `code.ai` language, a custom stack-based language ins
 
 The provided code offers functions to load programs, compile them, set up the necessary environment, and run them on the OISC emulator.
 
+
+---
+
 ## Getting Started
 To get started with the OISC emulator:
 
@@ -48,13 +51,12 @@ To get started with the OISC emulator:
 
 Refer to the provided examples to see the OISC emulator in action.
 
-
-# MPCR OISC - One Instruction Set Computer
+## MPCR OISC - One Instruction Set Computer
 [MPCR OISC Code Here](https://colab.research.google.com/drive/1iaxUqTnE7hOe7Ni4hXlcppskNG3gC0sp?usp=sharing)
 
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language.
 
-# One Instruction Set Computer (OISC)
+## One Instruction Set Computer (OISC)
 An OISC is a theoretical computer architecture that has only one native instruction. The goal of OISC is to simplify the design and implementation of a computer system. In this implementation, the single native instruction is copy-paste, which copies a value from one memory location to another. All other operations are memory-mapped, meaning that they are implemented by writing to or reading from specific memory addresses.
 
 ## Stack-based languages and OISC
@@ -117,4 +119,3 @@ We welcome contributions to improve and extend the OISC emulator. If you find an
 
 By embracing the simplicity of OISC, we hope to inspire developers and enthusiasts to rethink the essence of computing, emphasizing clarity, efficiency, and understanding over layers of complexity.
 
----
