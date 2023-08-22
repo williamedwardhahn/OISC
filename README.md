@@ -1,14 +1,5 @@
 # One Instruction Set Computer (OISC) Emulator
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [The Complexity of Modern Computing](#the-complexity-of-modern-computing)
-3. [What is OISC?](#what-is-oisc)
-4. [Reducing Complexity with OISC](#reducing-complexity-with-oisc)
-5. [Implementation Details](#implementation-details)
-6. [Getting Started](#getting-started)
-7. [Further Reading](#further-reading)
-8. [Contributing & Support](#contributing--support)
 
 ## Introduction
 In the modern era of computing, systems have grown increasingly complex, often built upon layers of abstractions with millions of lines of code. This complexity can lead to inefficiencies, vulnerabilities, and a steep learning curve for budding developers. The One Instruction Set Computer (OISC) Emulator aims to counter this trend by simplifying the essence of computing to its fundamental core, reducing what might take hundreds of millions of lines down to mere hundreds.
