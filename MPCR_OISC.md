@@ -317,7 +317,7 @@ The true power of the MPCR OISC is harnessed when these special locations are us
 
 It's crucial to understand that while these special locations serve specific purposes, they are part of the unified memory model. This integration ensures efficient memory usage and optimizes data retrieval and storage operations.
 
-## Chapter 11: Best Practices and Optimization in MPCR OISC
+## Best Practices and Optimization in MPCR OISC
 
 ### The Need for Optimization
 
