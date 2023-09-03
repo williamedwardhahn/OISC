@@ -1,5 +1,5 @@
 
-# Hahn's VM Comprehensive Documentation
+# MPCR OISC Documentation
 
 ## 1. Introduction:
 Hahn's VM is a One Instruction Set Computer (OISC) that operates using a unique set of commands. Its architecture is reminiscent of a Forth-like environment, supporting direct subroutine threading and various operations.
@@ -66,7 +66,7 @@ Hahn's VM is a One Instruction Set Computer (OISC) that operates using a unique 
 - **Chained Operations:** Multiple operations can be chained. Ensure the stack contains the correct values in order for the operations to execute correctly.
 - **Debugging:** Track the stack's state to debug issues. Ensure all commands are written in ordered pairs format.
 
-## Chapter 2: Understanding the Basics
+## Understanding the Basics
 
 ### The Concept of Virtual Machines
 
@@ -86,43 +86,8 @@ One of the standout features of the MPCR OISC is its unified memory model. Unlik
 2. **Simplicity:** A singular memory model reduces complexity, making it easier to understand and manage memory operations.
 3. **Efficiency:** With careful management, the unified memory model can lead to optimized memory usage, ensuring that no memory space is wasted.
 
-In the next chapter, we will dive deeper into the heart of the MPCR OISC—the dictionary. We'll explore how it operates, its significance, and how it ties the entire system together.
 
----
-
-*Continue reading in Chapter 3, where the dictionary's role in the MPCR OISC is unraveled, providing insights into how words and addresses are managed.*
-
-
-## Chapter 3: The Heart of the VM: The Dictionary
-
-### Role of the Dictionary
-
-In the MPCR OISC, the dictionary plays a pivotal role. At its core, the dictionary is a mapping mechanism, associating words (or names) with specific addresses in memory. These words can represent functions, variables, or any other named entity within the VM. The dictionary simplifies memory management and provides a human-readable way to reference memory locations.
-
-### How Words are Stored and Retrieved
-
-When a word is defined in the MPCR OISC, it's associated with a particular memory address. This association allows the VM to quickly locate and execute the corresponding code or retrieve the relevant data when that word is invoked.
-
-For instance, when storing a value in a named memory location (like `Apple`), the dictionary is consulted to find the corresponding address for `Apple`. The value is then stored at this address. Similarly, when retrieving a value or executing a function named `Apple`, the dictionary provides the necessary address to the VM.
-
-This mechanism not only simplifies memory management but also abstracts away the complexities of direct memory addressing, making programming in the MPCR OISC more intuitive.
-
-### Practical Use Cases
-
-The dictionary's utility isn't just limited to basic store and retrieve operations. It serves as the foundation for:
-
-1. **Function Definitions:** When defining a new function, its code is stored at a particular address, and the function's name is associated with this address in the dictionary. This allows the function to be called by name later.
-2. **Variables:** Similar to functions, variables are named memory locations. The dictionary helps in dynamically allocating and referencing these locations.
-3. **Control Flow:** For operations like branching or looping, the dictionary provides the necessary addresses for the VM to jump to, ensuring seamless control flow.
-
-In subsequent chapters, we'll delve deeper into the specific operations of the MPCR OISC, exploring how the dictionary interacts with each operation and how it facilitates the VM's smooth functioning.
-
----
-
-*Stay tuned for Chapter 4, where we'll dive into the programming basics of the MPCR OISC, unraveling the intricacies of its unique instruction set.*
-
-
-## Chapter 3: The Heart of the MPCR OISC: The Dictionary
+## The Heart of the MPCR OISC: The Dictionary
 
 ### Role of the Dictionary
 
@@ -148,61 +113,8 @@ The dictionary's role goes beyond mere storage. It's the backbone for various ad
 2. **Dynamic Programming:** With the dictionary, you can create words on-the-fly, enabling dynamic and flexible programming techniques.
 3. **Optimization:** By storing frequently used operations or data, the dictionary can significantly speed up program execution.
 
-In the next chapter, we will delve into the basics of programming in the MPCR OISC. We'll discuss the importance of ordered pairs, the concept of the stack, and how to load literal values.
 
----
-
-*Continue to Chapter 4 where we start coding, finally getting our hands dirty with the MPCR OISC's unique programming paradigm.*
-
-
-## Chapter 4: Programming Basics in MPCR OISC
-
-### Understanding Ordered Pairs
-
-The MPCR OISC introduces a unique way of writing code: using ordered pairs. These pairs serve as atomic units of instructions, dictating how the machine should operate. The format is quite straightforward:
-
-```
-(Value, Operation)
-```
-
-For example, to load the number 5 onto the stack, you'd use:
-
-```
-5,L L,S
-```
-
-This brings us to another core concept—the stack.
-
-### The Importance of the Stack
-
-The stack is a LIFO (Last-In, First-Out) data structure that plays a crucial role in the MPCR OISC's operations. Most instructions rely on manipulating the stack, either by adding values to it or retrieving values from it. Understanding stack management is essential for mastering programming in this environment.
-
-### Loading Literal Values
-
-Literal values, such as numbers, can be loaded onto the stack using the 'L' command. This command serves as a precursor to many operations, as they often require specific values to be present on the stack. For example, to add 5 and 3, you'd first load these numbers onto the stack:
-
-```
-5,L L,S 3,L L,S
-```
-
-And then you'd proceed with the addition operation.
-
-### Summary
-
-Understanding these basic principles sets the stage for diving deeper into the MPCR OISC's functionalities. We've touched upon:
-
-- The unique ordered pair system of writing code.
-- The crucial role of the stack in operations.
-- The method of loading literal values onto the stack.
-
-In the next chapter, we will explore arithmetic operations, learning how to perform basic calculations in this unique environment.
-
----
-
-*Continue to Chapter 5 where we unlock the power of arithmetic operations in the MPCR OISC.*
-
-
-## Chapter 4: Programming Basics in MPCR OISC
+## Programming Basics in MPCR OISC
 
 ### Understanding Ordered Pairs
 
@@ -226,14 +138,8 @@ In the MPCR OISC, literal values (like numbers) are loaded onto the stack using 
 
 Understanding how to load literals is essential, as they form the basis for many operations. Whether you're performing arithmetic, storing values in memory, or making decisions based on comparisons, you'll often start by loading the necessary literals onto the stack.
 
-In the subsequent chapters, we'll explore more complex operations and dive deep into the unique features of the MPCR OISC. From arithmetic to memory management, we'll see how this minimalist system offers a robust platform for various tasks.
 
----
-
-*Up next, Chapter 5 delves into the world of arithmetic operations. Get ready to crunch some numbers with the MPCR OISC!*
-
-
-## Chapter 5: Arithmetic Operations in MPCR OISC
+## Arithmetic Operations in MPCR OISC
 
 ### Basic Arithmetic
 
@@ -259,16 +165,8 @@ Apart from the basic arithmetic operations, the MPCR OISC offers commands for:
 
 Once an arithmetic operation is performed, the result is placed on top of the stack. From here, it can be used in subsequent operations, stored in a memory location, or outputted for the user.
 
-### Summary
 
-Mastering arithmetic operations in the MPCR OISC is fundamental. With these operations, you can construct more complex programs and algorithms. In the upcoming chapters, we'll delve into more advanced topics, building on the foundational knowledge acquired so far.
-
----
-
-*Stay tuned for Chapter 6, where we'll uncover the relational and logical operations available in the MPCR OISC.*
-
-
-## Chapter 6: Relational and Logical Operations in MPCR OISC
+## Relational and Logical Operations in MPCR OISC
 
 ### Relational Operations
 
@@ -294,16 +192,9 @@ By combining relational and logical operations, complex decision-making processe
 
 The results of relational and logical operations often lead to branching—executing different sets of commands based on a condition. The `Branch` command in the MPCR OISC allows for conditional execution based on the top value of the stack.
 
-### Summary
-
-Relational and logical operations form the backbone of decision-making in programming. Mastering these operations in the MPCR OISC context is crucial for developing complex and functional programs. In the next chapters, we will explore memory operations, diving deep into how data is stored and retrieved in the MPCR OISC.
-
----
-
-*Continue to Chapter 7, where we delve into the intricacies of memory operations in the MPCR OISC.*
 
 
-## Chapter 7: Memory Operations in MPCR OISC
+## Memory Operations in MPCR OISC
 
 ### Understanding Memory in MPCR OISC
 
@@ -340,16 +231,7 @@ Later, to retrieve this value:
 Apple,S @,W
 ```
 
-### Summary
-
-Memory operations form the backbone of data management in the MPCR OISC. Understanding how to efficiently store and retrieve data is crucial for creating functional and optimized programs. In upcoming chapters, we'll dive deeper into advanced topics, further exploring the capabilities of the MPCR OISC.
-
----
-
-*Stay tuned for Chapter 8, where we focus on stack operations, uncovering the techniques to manage and manipulate data in the MPCR OISC.*
-
-
-## Chapter 8: Stack Operations in MPCR OISC
+## Stack Operations in MPCR OISC
 
 ### The Essence of the Stack
 
@@ -381,51 +263,9 @@ Consider adding two numbers, 5 and 3:
 
 In this sequence, the numbers are first pushed onto the stack, and then the addition operation is executed, utilizing the top two values.
 
-### Summary
-
-Mastering stack operations is fundamental for anyone looking to become proficient in MPCR OISC. The stack is central to almost every operation in the system, and understanding its nuances is vital. In the subsequent chapters, we will explore more advanced concepts and delve deeper into the world of MPCR OISC.
-
----
-
-*Continue to Chapter 9, where we will explore the control flow mechanisms in the MPCR OISC, allowing for conditional and looped executions.*
 
 
-## Chapter 8: Stack Operations in MPCR OISC
-
-### The Role of the Stack
-
-As previously discussed, the stack is central to the MPCR OISC's operation. This chapter aims to explore how to manipulate the stack to suit different programming needs.
-
-### Basic Stack Manipulations
-
-The MPCR OISC offers a range of commands for stack manipulation, including:
-
-- **Over (`Over`)**: Duplicates the second-to-top item on the stack to the top.
-- **Rot (`Rot`)**: Moves the third item on the stack to the top.
-- **Drop (`Drop`)**: Removes the top item from the stack.
-
-### Advanced Stack Operations
-
-In addition to basic operations, advanced stack manipulations can be achieved by creatively combining different commands. This allows for intricate and optimized stack management strategies.
-
-### Practical Examples
-
-Consider a stack with the following items, listed from bottom to top: `[3, 4, 5]`.
-
-- **Using `Over`**: After executing `Over`, the stack becomes `[3, 4, 5, 4]`.
-- **Using `Rot`**: After executing `Rot`, the stack becomes `[4, 5, 3]`.
-- **Using `Drop`**: After executing `Drop`, the stack becomes `[3, 4]`.
-
-### Summary
-
-Managing the stack is a cornerstone of effective programming in the MPCR OISC. By mastering stack operations, you pave the way for more complex and powerful programs. In the next chapter, we'll explore the concept of control flow, learning how to dictate the execution sequence of commands.
-
----
-
-*Continue to Chapter 9, where we delve into the essence of control flow in the MPCR OISC.*
-
-
-## Chapter 9: Control Flow in MPCR OISC
+## Control Flow in MPCR OISC
 
 ### What is Control Flow?
 
@@ -450,16 +290,9 @@ TrueCommands,S FalseCommands,S One Branch
 
 If the result of the condition checks is `1` (true), `TrueCommands` will be executed. Otherwise, `FalseCommands` will be run.
 
-### Summary
-
-Control flow is the backbone of any functional program. By understanding how to dictate the sequence of command execution in the MPCR OISC, you unlock the potential to create a wide range of applications, from simple calculators to complex algorithms. In the upcoming chapters, we'll continue our deep dive, exploring further nuances and advanced topics related to the MPCR OISC.
-
----
-
-*Proceed to Chapter 10, where we shed light on special registers and locations, enhancing our understanding of the MPCR OISC's inner workings.*
 
 
-## Chapter 10: Special Registers and Locations in MPCR OISC
+## Special Registers and Locations in MPCR OISC
 
 ### Unveiling Special Locations
 
@@ -484,15 +317,6 @@ The true power of the MPCR OISC is harnessed when these special locations are us
 
 It's crucial to understand that while these special locations serve specific purposes, they are part of the unified memory model. This integration ensures efficient memory usage and optimizes data retrieval and storage operations.
 
-### Summary
-
-Special registers and locations are the linchpins of the MPCR OISC. By mastering their functionalities and understanding their intricacies, you set the stage for advanced programming in this unique environment. In subsequent chapters, we'll delve deeper, exploring advanced programming techniques and best practices for the MPCR OISC.
-
----
-
-*Join us in Chapter 11, where we discuss best practices and optimization techniques, ensuring efficient and effective programming in the MPCR OISC.*
-
-
 ## Chapter 11: Best Practices and Optimization in MPCR OISC
 
 ### The Need for Optimization
@@ -515,16 +339,9 @@ Given the MPCR OISC's minimalist nature, efficient programming is paramount. Opt
 
 The MPCR OISC is all about simplicity and minimalism. Embrace this philosophy by focusing on the core logic of operations rather than getting lost in intricate command sequences. Often, the simplest solution is also the most optimized.
 
-### Summary
-
-Optimization in the MPCR OISC is both an art and a science. By understanding the machine's inner workings and employing best practices, you can craft efficient, fast, and effective programs. In the next chapters, we'll explore more advanced topics, providing deeper insights into the MPCR OISC's capabilities.
-
----
-
-*Proceed to Chapter 12, where we delve into advanced topics, uncovering the full potential of the MPCR OISC.*
 
 
-## Chapter 12: Advanced Topics in MPCR OISC
+## Advanced Topics in MPCR OISC
 
 ### Delving Deeper
 
@@ -549,44 +366,6 @@ While the MPCR OISC is a standalone machine, it's conceivable to interface it wi
 
 Given its simplicity, the MPCR OISC is an excellent candidate for emulation. By creating emulators in different programming languages, you can study its behavior in various environments and even expand upon its basic design.
 
-### Summary
-
-The MPCR OISC, while minimalistic, offers a plethora of advanced capabilities waiting to be uncovered. By delving deep into its functionalities and experimenting with different techniques, you can push the boundaries of what's possible with this unique machine. As we wrap up this guide, we encourage you to continue exploring, experimenting, and innovating.
-
----
-
-*Thank you for journeying with us through the intricacies of the MPCR OISC. We hope this guide serves as a valuable resource in your programming endeavors.*
-
-
-## Chapter 13: Advanced Programming Techniques in MPCR OISC
-
-### Crafting Efficient Algorithms
-
-As with any programming platform, the efficiency of algorithms in the MPCR OISC can vary widely based on their implementation. Leveraging the unique features and strengths of the MPCR OISC can lead to highly optimized solutions.
-
-### Recursive Solutions
-
-While the MPCR OISC doesn't inherently support recursive function calls in a traditional sense, it's possible to emulate recursion through creative stack management and subroutine calls.
-
-### Parallelism and Concurrency
-
-Given the MPCR OISC's architecture, introducing parallelism or concurrency is a challenging endeavor. However, by splitting tasks and managing memory effectively, you can achieve a semblance of concurrent operations.
-
-### Memory Management Techniques
-
-Memory is a precious resource in the MPCR OISC. Advanced techniques, such as memory pooling or dynamic memory allocation, can be emulated to ensure efficient memory usage.
-
-### Handling Large Datasets
-
-Given the constraints of the MPCR OISC, handling large datasets requires segmentation and iterative processing. This chapter will explore techniques to process and manipulate large volumes of data efficiently.
-
-### Summary
-
-Advanced programming in the MPCR OISC opens up a world of possibilities. By pushing the boundaries and thinking outside the box, you can craft solutions that rival those in traditional programming environments. As our exploration continues, we'll delve into more niche topics, expanding our understanding of the MPCR OISC's potential.
-
----
-
-*Join us in Chapter 14, where we explore real-world applications and case studies of the MPCR OISC in action.*
 
 
 ## Glossary of Terms
