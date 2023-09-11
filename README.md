@@ -52,7 +52,7 @@ To get started with the OISC emulator:
 Refer to the provided examples to see the OISC emulator in action.
 
 ## MPCR OISC - One Instruction Set Computer
-[MPCR OISC Code Here](https://colab.research.google.com/drive/1vG-abyRKAONbNl3nvtM4RFtl7J8svCWb?usp=sharing)
+[MPCR OISC Code Here](https://colab.research.google.com/drive/1NEbV03CO-JMsNumqv1Nd6no0hewdhQpq?usp=sharing)
 
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language.
 
