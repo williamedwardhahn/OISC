@@ -1,5 +1,8 @@
-# One Instruction Set Computer (OISC) Emulator
+## MPCR OISC - One Instruction Set Computer
+[MPCR OISC Code Here](https://colab.research.google.com/drive/1NEbV03CO-JMsNumqv1Nd6no0hewdhQpq?usp=sharing)
 
+
+# One Instruction Set Computer (OISC) Emulator
 
 ## Introduction
 In the modern era of computing, systems have grown increasingly complex, often built upon layers of abstractions with millions of lines of code. This complexity can lead to inefficiencies, vulnerabilities, and a steep learning curve for budding developers. The One Instruction Set Computer (OISC) Emulator aims to counter this trend by simplifying the essence of computing to its fundamental core, reducing what might take hundreds of millions of lines down to mere hundreds.
@@ -50,9 +53,6 @@ To get started with the OISC emulator:
 5. Run your program on the emulator using the `run` function.
 
 Refer to the provided examples to see the OISC emulator in action.
-
-## MPCR OISC - One Instruction Set Computer
-[MPCR OISC Code Here](https://colab.research.google.com/drive/1NEbV03CO-JMsNumqv1Nd6no0hewdhQpq?usp=sharing)
 
 This code is a custom implementation of a One Instruction Set Computer (OISC) with a virtual machine that has a single native instruction: copy-paste. The code uses a custom stack-based programming language called 'code.ai', which is similar to the Forth programming language.
 
