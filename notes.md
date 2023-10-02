@@ -24,3 +24,5 @@ http://www.forth.org/eforth.html
 
 
 http://www.figuk.plus.com/articles/chuck.pdf
+
+https://ryanking13.github.io/pyodide-pyxel-test/
