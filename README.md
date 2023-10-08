@@ -112,6 +112,12 @@ For those interested in diving deeper into stack-based languages, OISC, and the 
 - [Thinking Forth](https://github.com/williamedwardhahn/OISC/blob/main/Forth_Books/Thinking%20Forth%20A%20Language%20and%20Philosophy%20for%20Solving%20Problems%20(Leo%20Brodie).pdf)
 - [More Books](https://github.com/williamedwardhahn/OISC/tree/main/Forth_Books)
 
+## Research Links
+
+- [LLM](https://arxiv.org/abs/2201.11473)
+
+
+
 ## Contributing & Support
 We welcome contributions to improve and extend the OISC emulator. If you find any issues or have suggestions, please open an issue on the repository. For direct support or queries, reach out to the maintainers.
 
