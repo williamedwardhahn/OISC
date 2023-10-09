@@ -19,10 +19,11 @@ http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm
 
 https://archive.org/details/R.G.LoeligerThreadedInterpretiveLanguagesTheirDesignAndImplementationByteBooks1981/page/n7/mode/2up?view=theater
 
-
 http://www.forth.org/eforth.html
-
 
 http://www.figuk.plus.com/articles/chuck.pdf
 
 https://ryanking13.github.io/pyodide-pyxel-test/
+
+https://arxiv.org/abs/2201.11473
+
