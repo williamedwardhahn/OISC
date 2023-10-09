@@ -27,3 +27,6 @@ https://ryanking13.github.io/pyodide-pyxel-test/
 
 https://arxiv.org/abs/2201.11473
 
+
+http://www.forth.org/cores.html
+
