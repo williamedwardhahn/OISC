@@ -1,0 +1,857 @@
+NEXT:
+    IP +1 _ W
+    IP RC INCC IP
+    W +1 _ PC
+
+xt_MNEXT:
+    0 
+    0
+    5 35 78 69 88 84
+$MNEXT: $DOCON #NEXT: NEXT
+
+xt_DOCOL:
+    xt_MNEXT 
+    0
+    5 68 79 67 79 76
+$DOCOL:
+    RP RC DECC RP RP +2 IP _
+    W RC INCC IP
+    #NEXT PC
+
+xt_DOCON:
+    xt_DOCOL 
+    0
+    5 68 79 67 79 78
+$DOCON:
+    W RC INCC W
+    SP RC DECC SP W +3 SP +2 _ _
+    #NEXT PC
+
+xt_DOVAR:
+    xt_DOCON 
+    0
+    5 68 79 86 65 82
+$DOVAR:
+    W RC INCC W
+    SP RC DECC SP SP +2 W _
+    #NEXT PC
+
+ROVER:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+RBASE:
+xt_RBASE:
+    xt_DOVAR 
+    0
+    5 82 66 65 83 69
+$RBASE: $DOCON RBASE
+xt_ROVER:
+    xt_RBASE 
+    0
+    5 82 79 86 69 82
+$ROVER: $DOCON ROVER
+SOVER:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+SBASE:
+xt_SBASE:
+    xt_ROVER 
+    0
+    5 83 66 65 83 69
+$SBASE: $DOCON SBASE
+xt_SOVER:
+    xt_SBASE 
+    0
+    5 83 79 86 69 82
+$SOVER: $DOCON SOVER
+xt_RP:
+    xt_SOVER 
+    0
+    2 82 80
+$RP: $DOVAR RP: RBASE
+xt_SP:
+    xt_RP 
+    0
+    2 83 80
+$SP: $DOVAR SP: SBASE
+xt_W:
+    xt_SP 
+    0
+    1 87
+$W: $DOVAR W: _
+xt_IP:
+    xt_W 
+    0
+    2 73 80
+$IP: $DOVAR IP: _COLD_START
+
+_COLD_START:
+    $QUIT
+
+xt_LIT:
+    xt_IP 
+    0
+    3 76 73 84
+$LIT: +1
+    SP RC DECC SP IP +3 SP +2 _ _
+    IP RC INCC IP
+    #NEXT PC
+
+xt_EXIT:
+    xt_LIT 
+    0
+    4 69 88 73 84
+$EXIT: +1
+    RP +1 _ IP RP RC INCC RP
+    #NEXT PC
+
+xt_AT:
+    xt_EXIT 
+    0
+    1 64
+$AT: +1
+    SP +1 _ W SP RC INCC SP
+    SP RC DECC SP W +3 SP +2 _ _
+    #NEXT PC
+
+xt_BANG:
+    xt_AT 
+    0
+    1 33
+$BANG: +1
+    SP +1 _ W SP RC INCC SP
+    SP +3 W +2 _ _
+    SP RC INCC SP
+    #NEXT PC
+
+xt_ADD:
+    xt_BANG 
+    0
+    1 43
+$ADD: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    SP RC DECC SP SP +2 ADDAB _
+    #NEXT PC
+
+xt_INCR:
+    xt_ADD 
+    0
+    2 49 43
+$INCR: +1
+    SP +1 _ RA SP RC INCC SP
+    SP RC DECC SP SP +2 INCA _
+    #NEXT PC
+
+xt_SUB:
+    xt_INCR 
+    0
+    1 45
+$SUB: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    SP RC DECC SP SP +2 ASUBB _
+    #NEXT PC
+
+xt_DECR:
+    xt_SUB 
+    0
+    2 49 45
+$DECR: +1
+    SP +1 _ RA SP RC INCC SP
+    SP RC DECC SP SP +2 DECA _
+    #NEXT PC
+
+xt_EQ:
+    xt_DECR 
+    0
+    1 61
+$EQ: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    SP RC DECC SP SP +2 EQAB _
+    #NEXT PC
+
+xt_NEQ:
+    xt_EQ 
+    0
+    2 60 62
+$NEQ: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    EQAB RC
+    SP RC DECC SP SP +2 INVERTC _
+    #NEXT PC
+
+xt_AND:
+    xt_NEQ 
+    0
+    3 65 78 68
+$AND: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    SP RC DECC SP SP +2 ANDAB _
+    #NEXT PC
+
+xt_OR:
+    xt_AND 
+    0
+    2 79 82
+$OR: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB SP RC INCC SP
+    SP RC DECC SP SP +2 ORAB _
+    #NEXT PC
+
+xt_LSHIFT:
+    xt_OR 
+    0
+    6 82 83 72 73 70 84
+$LSHIFT: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RC SP RC INCC SP
+    SP RC DECC SP SP +2 ALSHC _
+    #NEXT PC
+
+xt_RSHIFT:
+    xt_LSHIFT 
+    0
+    6 82 83 72 73 70 84
+$RSHIFT: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RC SP RC INCC SP
+    SP RC DECC SP SP +2 ARSHC _
+    #NEXT PC
+
+xt_INVERT:
+    xt_RSHIFT 
+    0
+    6 73 78 86 69 82 84
+$INVERT: +1
+    SP +1 _ RC SP RC INCC SP
+    SP RC DECC SP SP +2 INVERTC _
+    #NEXT PC
+
+xt_DUP:
+    xt_INVERT 
+    0
+    3 68 85 80
+$DUP: +1
+    SP +1 _ W
+    SP RC DECC SP SP +2 W _
+    #NEXT PC
+
+xt_NIP:
+    xt_DUP 
+    0
+    3 78 73 80
+$NIP: +1
+    SP +1 _ W SP RC INCC SP
+    SP +2 W _
+    #NEXT PC
+
+xt_DDUP:
+    xt_NIP 
+    0
+    4 50 68 85 80
+$DDUP: +1
+    SP +1 _ W SP RC INCC SP
+    SP +1 _ _T1
+    SP RC INCC SP
+    SP RC DECC SP SP +2 _T1 _
+    SP RC DECC SP SP +2 W _
+    #NEXT PC
+
+xt_DROP:
+    xt_DDUP 
+    0
+    4 68 82 79 80
+$DROP: +1
+    SP RC INCC SP
+    #NEXT PC
+
+xt_DDROP:
+    xt_DROP 
+    0
+    5 50 68 82 79 80
+$DDROP: +1
+
+_T1: _
+_T2: _
+_T3: _
+
+xt_SWAP:
+    xt_DDROP 
+    0
+    4 83 87 65 80
+$SWAP: +1
+    SP +1 _ W SP RC INCC SP
+    SP +1 _ _T1 SP RC INCC SP
+    SP RC DECC SP SP +2 W _
+    SP RC DECC SP SP +2 _T1 _
+    #NEXT PC
+
+xt_OVER:
+    xt_SWAP 
+    0
+    4 79 86 69 82
+$OVER: +1
+    SP RC INCC SP
+    SP +1 _ W
+    SP RC DECC SP
+    SP RC DECC SP SP +2 W _
+    #NEXT PC
+
+xt_ROT:
+    xt_OVER 
+    0
+    3 82 79 84
+$ROT: +1
+    SP +1 _ W SP RC INCC SP
+    SP +1 _ _T1 SP RC INCC SP
+    SP +1 _ _T2 SP RC INCC SP
+    SP RC DECC SP SP +2 _T1 _
+    SP RC DECC SP SP +2 W _
+    SP RC DECC SP SP +2 _T2 _
+    #NEXT PC
+
+xt_PICK:
+    xt_ROT 
+    0
+    4 80 73 67 75
+$PICK: +1
+    SP +1 _ RA SP RC INCC SP
+    SP +1 _ RB
+    ADDAB W
+    SP RC DECC SP W +3 SP +2 _ _
+    #NEXT PC
+
+xt_TOR:
+    xt_PICK 
+    0
+    2 62 82
+$TOR: +1
+    SP +1 _ W SP RC INCC SP
+    RP RC DECC RP RP +2 W _
+    #NEXT PC
+
+xt_FROMR:
+    xt_TOR 
+    0
+    2 82 62
+$FROMR: +1
+    RP +1 _ W RP RC INCC RP
+    SP RC DECC SP SP +2 W _
+    #NEXT PC
+
+xt_BRANCH:
+    xt_FROMR 
+    0
+    6 66 82 65 78 67 72
+$BRANCH: +1
+    IP RA
+    IP +1 _ RB
+    ADDAB IP
+    #NEXT PC
+
+xt_CBRANCH:
+    xt_BRANCH 
+    0
+    7 63 66 82 65 78 67 72
+$CBRANCH: +1
+    IP RA
+    IP +1 _ RB
+    ADDAB RB
+    INCA RA
+    SP +5 SP RC INCC SP _ RC
+    CTERN IP
+    #NEXT PC
+
+xt_KEY:
+    xt_CBRANCH 
+    0
+    3 75 69 89
+$KEY: $DOCOL
+    $LIT IOKEY
+    $AT
+    $EXIT
+
+xt_EMIT:
+    xt_KEY 
+    0
+    4 69 77 73 84
+$EMIT: $DOCOL
+    $LIT IOEMIT
+    $BANG
+    $EXIT
+
+xt_BL:
+    xt_EMIT 
+    0
+    2 66 76
+$BL: $DOCON 32
+xt_CR:
+    xt_BL 
+    0
+    2 67 82
+$CR: $DOCON 10
+xt_ZERO:
+    xt_CR 
+    0
+    4 90 69 82 79
+$ZERO: $DOCON 0
+xt_TRUE:
+    xt_ZERO 
+    0
+    4 84 82 85 69
+$TRUE: $DOCON -1
+
+xt_COMMA:
+    xt_TRUE 
+    0
+    1 44
+$COMMA: $DOCOL
+    $HERE
+    $BANG
+    $HERE
+    $INCR
+    $_HERE
+    $BANG
+    $EXIT
+
+xt_WORD:
+    xt_COMMA
+    0
+    4 87 79 82 68
+$WORD: $DOCOL
+    $HERE
+    $ZERO
+    $COMMA
+    $SWAP
+    $ZERO
+    $OVER
+    $KEY
+    $DDUP
+    $EQ
+    $OVER
+    $LIT 10
+    $EQ
+    $OR
+    $CBRANCH -9
+    $COMMA
+    $INCR
+    $OVER
+    $KEY
+    $DUP
+    $COMMA
+    $NEQ
+    $CBRANCH -7
+    $OVER
+    $BANG
+    $EXIT
+
+xt_TOFFA:
+    xt_WORD 
+    0
+    4 62 70 70 65
+$TOFFA: $DOCOL
+    $INCR
+    $EXIT
+
+xt_TONFA:
+    xt_TOFFA 
+    0
+    4 62 78 70 65
+$TONFA: $DOCOL
+    $LIT 2
+    $ADD
+    $EXIT
+
+xt_TOCFA:
+    xt_TONFA 
+    0
+    4 62 67 70 65
+$TOCFA: $DOCOL
+    $TONFA
+    $DUP
+    $AT
+    $ADD
+    $EXIT
+
+xt_TOBODY:
+    xt_TOCFA 
+    0
+    5 62 66 79 68 89
+$TOBODY: $DOCOL
+    $TOCFA
+    $INCR
+    $EXIT
+
+xt_COUNT:
+    xt_TOBODY 
+    0
+    5 67 79 85 78 84
+$COUNT: $DOCOL
+    $DUP
+    $INCR
+    $SWAP
+    $AT
+    $EXIT
+
+xt_F_NORMAL:
+    xt_COUNT 
+    0
+    8 70 95 78 79 82 77 65 76
+$F_NORMAL: $DOCON 0
+xt_F_IMMED:
+    xt_F_NORMAL 
+    0
+    7 70 95 73 77 77 69 68
+$F_IMMED: $DOCON 1
+xt_F_HIDDEN:
+    xt_F_IMMED 
+    0
+    8 70 95 72 73 68 68 69 78
+$F_HIDDEN: $DOCON 2
+
+xt_CREATE:
+    xt_F_HIDDEN 
+    0
+    6 67 82 69 65 84 69
+$CREATE: $DOCOL
+    $LATEST
+    $AT
+    $HERE
+    $LATEST
+    $BANG
+    $COMMA
+    $F_NORMAL
+    $COMMA
+    $BL
+    $WORD
+    $DOVAR
+    $COMMA
+    $EXIT
+
+xt_STATE:
+    xt_CREATE 
+    0
+    5 83 84 65 84 69
+$STATE: $DOVAR 0
+
+xt_DOES:
+    xt_STATE 
+    0
+    5 68 79 69 83 62
+$DOES: $DOCOL
+    $FROMR
+    $DECR
+    $LIT $DOCOL
+    $OVER
+    $BANG
+    $LATEST
+    $AT
+    $TOCFA
+    $BANG
+    $ZERO
+    $STATE
+    $BANG
+    $EXIT
+
+xt_STREQ:
+    xt_DOES 
+    0
+    2 83 61
+$STREQ: $DOCOL
+    $ROT
+    $OVER
+    $EQ
+    $CBRANCH 5
+    $DROP
+    $DDROP
+    $ZERO
+    $EXIT
+    $DUP
+    $CBRANCH 5
+    $DROP
+    $DDROP
+    $TRUE
+    $EXIT
+    $DECR
+    $OVER
+    $AT
+    $LIT 3
+    $PICK
+    $AT
+    $EQ
+    $CBRANCH -16
+    $BRANCH -22
+
+xt_CSTREQ:
+    xt_STREQ 
+    0
+    3 67 83 61
+$CSTREQ: $DOCOL
+    $COUNT
+    $ROT
+    $COUNT
+    $STREQ
+    $EXIT
+
+xt_FIND:
+    xt_CSTREQ 
+    0
+    4 70 73 78 68
+$FIND: $DOCOL
+    $LATEST
+    $AT
+    $DUP
+    $CBRANCH 2
+    $EXIT
+    $INCR
+    $F_HIDDEN
+    $AND
+    $CBRANCH -9
+    $DDUP
+    $TONFA
+    $CSTREQ
+    $INVERT
+    $CBRANCH -15
+    $NIP
+    $DUP
+    $TOFFA
+    $AT
+    $F_IMMED
+    $AND
+    $CBRANCH 3
+    $LIT 1
+    $EXIT
+    $TRUE
+    $EXIT
+
+xt_LBRAC:
+    xt_FIND 
+    1
+    1 91
+$LBRAC: $DOCOL
+    $ZERO
+    $STATE
+    $BANG
+    $EXIT
+
+xt_RBRAC:
+    xt_LBRAC 
+    0
+    1 93
+$RBRAC: $DOCOL
+    $TRUE
+    $STATE
+    $BANG
+    $EXIT
+
+xt_HIDE:
+    xt_RBRAC 
+    0
+    4 72 73 68 69
+$HIDE: $DOCOL
+    $LATEST
+    $AT
+    $TOFFA
+    $DUP
+    $F_HIDDEN
+    $OR
+    $SWAP
+    $BANG
+    $EXIT
+
+xt_SHOW:
+    xt_HIDE 
+    0
+    4 83 72 79 87
+$SHOW: $DOCOL
+    $LATEST
+    $AT
+    $TOFFA
+    $DUP
+    $F_HIDDEN
+    $INVERT
+    $AND
+    $SWAP
+    $BANG
+    $EXIT
+
+xt_IMMEDIATE:
+    xt_SHOW 
+    0
+    9 73 77 77 69 68 73 65 84 69
+$IMMEDIATE: $DOCOL
+    $LATEST
+    $AT
+    $TOFFA
+    $DUP
+    $F_IMMED
+    $OR
+    $SWAP
+    $BANG
+    $EXIT
+
+xt_COLON:
+    xt_IMMEDIATE 
+    0
+    1 58
+$COLON: $DOCOL
+    $CREATE
+    $LIT $DOCOL
+    $LATEST
+    $AT
+    $TOCFA
+    $BANG
+    $HIDE
+    $RBRAC
+    $EXIT
+
+xt_SEMICOLON:
+    xt_COLON 
+    1
+    1 59
+$SEMICOLON: $DOCOL
+    $LIT $EXIT
+    $COMMA
+    $SHOW
+    $LBRAC
+    $EXIT
+
+xt_JUMP:
+    xt_SEMICOLON 
+    0
+    4 74 85 77 80
+$JUMP: +1
+    SP +1 _ W SP RC INCC SP
+    W PC
+
+xt_EXECUTE:
+    xt_JUMP 
+    0
+    7 69 88 69 67 85 84 69
+$EXECUTE: $DOCOL
+    $TOCFA
+    $AT
+    $JUMP
+
+xt_TIMESTEN:
+    xt_EXECUTE 
+    0
+    8 84 73 77 69 83 84 69 78
+$TIMESTEN: $DOCOL
+    $DUP
+    $LIT 2
+    $LSHIFT
+    $ADD
+    $LIT 1
+    $LSHIFT
+    $EXIT
+
+xt_DECTONUMBER:
+    xt_TIMESTEN 
+    0
+    10 68 69 67 62 78 85 77 66 69 82
+$DECTONUMBER: $DOCOL
+    $ZERO
+    $OVER
+    $CBRANCH 4
+    $NIP
+    $NIP
+    $EXIT
+    $ROT
+    $INCR
+    $DUP
+    $AT
+    $LIT 48
+    $SUB
+    $ROT
+    $TIMESTEN
+    $ADD
+    $ROT
+    $DECR
+    $SWAP
+    $BRANCH -20
+
+xt_TONUMBER:
+    xt_DECTONUMBER 
+    0
+    7 62 78 85 77 66 69 82
+$TONUMBER: $DOCOL
+    $ROT
+    $DUP
+    $LIT 10
+    $EQ
+    $CBRANCH 5
+    $DROP
+    $DDROP
+    $ZERO
+    $EXIT
+    $DROP
+    $DECTONUMBER
+    $EXIT
+
+xt_INTERPRET:
+    xt_TONUMBER 
+    0
+    9 73 78 84 69 82 80 82 69 84
+$INTERPRET: $DOCOL
+    $BL
+    $WORD
+    $FIND
+    $STATE
+    $AT
+    $CBRANCH 12
+    $DUP
+    $CBRANCH 7
+    $BASE
+    $AT
+    $SWAP
+    $COUNT
+    $TONUMBER
+    $EXIT
+    $EXECUTE
+    $EXIT
+    $CBRANCH 4
+    $LIT $LIT
+    $COMMA
+    $COMMA
+    $EXIT
+
+xt_QUIT:
+    xt_INTERPRET 
+    0
+    4 81 85 73 84
+$QUIT: $DOCOL
+    $RBASE
+    $RP
+    $BANG
+    $INTERPRET
+    $BRANCH -2
+
+xt_BASE:
+    xt_QUIT 
+    0
+    4 66 65 83 69
+$BASE: $DOVAR 10
+
+xt__HERE:
+    xt_BASE 
+    0
+    5 95 72 69 82 69
+$_HERE: $DOCON _HERE
+
+xt_HERE:
+    xt__HERE 
+    0
+    4 72 69 82 69
+$HERE: $DOCON _HERE: _END_BOOTSTRAP
+
+xt_LATEST:
+    xt_HERE 
+    0
+    6 76 65 84 69 83 84
+$LATEST: $DOVAR xt_LATEST 
+
+_END_BOOTSTRAP:
