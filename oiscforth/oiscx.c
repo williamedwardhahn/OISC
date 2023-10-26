@@ -175,7 +175,7 @@ int main(int argc, char *argv[]) {
         mem[d] = v;
         switch (d) {
             case IOEMIT:
-                printf('%c',v);
+                printf("%c",v);
                 break;
         }
         fprintf(stderr, "%04x: %04x (%04x) %04x\n", PC-2, s, v, d);
