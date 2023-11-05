@@ -8,7 +8,7 @@
 
 #define ROMSTART 0x0100
 
-typedef int16_t cell;
+typedef uint16_t cell;
 
 #define PC (*mem)
 
@@ -101,10 +101,10 @@ int main(int argc, char *argv[]) {
                 v = mem[RA]>>mem[RB];
                 break;
             case ARSHC:
-                v = mem[RC]>>mem[RB];
+                v = mem[RA]>>mem[RC];
                 break;
             case ALSHC:
-                v = mem[RC]<<mem[RB];
+                v = mem[RA]<<mem[RC];
                 break;
             case ANDAC:
                 v = mem[RA]&mem[RC];
@@ -162,7 +162,7 @@ int main(int argc, char *argv[]) {
                 break;
             case IOKEY:
                 v = getchar();
-                if (v == EOF) {
+                if (v == (cell)EOF) {
                     PC = 0;
                     fprintf(stderr, "\nHit EOF, Halting now\n");
                 } else {
