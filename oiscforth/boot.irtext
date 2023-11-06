@@ -1,0 +1,401 @@
+NEXT:
+    IP +1 _ W
+    IP RC INCC IP
+    W +1 _ PC
+
+_BOOT:
+    #LIT 79
+    #LIT 32
+    #BANG
+    #LIT 75
+    #LIT 32
+    #BANG
+    #LIT 10
+    #LIT 32
+    #BANG
+    #QUIT
+
+DOCOL:
+    RP RC DECC RP RP +2 IP _
+    W RC INCC IP
+    #NEXT PC
+
+DOVAR:
+    SP RC DECC SP
+    SP +4 W RC INCC _
+    #NEXT PC
+
+DOCON:
+    SP RC DECC SP
+    W RC INCC +3
+    SP +2 _ _
+    #NEXT PC
+
+EXIT:
+    RP +1 _ IP RP RC INCC RP
+    #NEXT PC
+
+$SBASE: 256
+$RBASE: 128
+
+AT:
+    SP +3 SP +4 _ +1 _ _
+    #NEXT PC
+
+BANG:
+    SP +1 _ +6 SP RC INCC +1 _ _
+    +-2 RC INCC SP
+    #NEXT PC
+
+MEMCMP:
+    SP +1 _ _MEMCMP_D0
+    SP RA INCA +1 _ _MEMCMP_D1
+    +-2 RA INCA SP
+    SP +1 _ _MEMCMP_D2
+_MEMCMP_0:
+    _MEMCMP_D0 RC
+    +6 RA +5 RB CTERN PC _MEMCMP_1 _MEMCMP_2
+_MEMCMP_1:
+    DECC _MEMCMP_D0
+    _MEMCMP_D1 +1 _ RA
+    _MEMCMP_D1 RC INCC _MEMCMP_D1
+    _MEMCMP_D2 +1 _ RB
+    _MEMCMP_D2 RC INCC _MEMCMP_D2
+    EQAB RC
+    +6 RA +5 RB CTERN PC _MEMCMP_0 _MEMCMP_3
+_MEMCMP_2:
+    SP +2 $t _
+    #NEXT PC
+_MEMCMP_3:
+    SP +2 $0 _
+    #NEXT PC
+_MEMCMP_D0: _
+_MEMCMP_D1: _
+_MEMCMP_D2: _
+
+$LMASK: 8191
+
+FIND:
+    HEAD _FIND_D0
+    SP +1 _ +1 _ _FIND_D2
+    +-2 RC INCC _FIND_D1
+    IP _FIND_D3
+    _FIND_D0 RC
+_FIND_0:
+    INCC +1 _ RA
+    $LMASK RB ANDAB RA
+    _FIND_D2 RB
+    EQAB RC
+    +6 RA +5 RB CTERN PC _FIND_1 _FIND_3
+_FIND_1:
+    _FIND_D2 _MEMCMP_D0
+    _FIND_D1 _MEMCMP_D1
+    _FIND_D0 RA $2 RB ADDAB _MEMCMP_D2
+    _FIND_2 IP
+    +2 PC _MEMCMP_0
+_FIND_2: +1 +1 +1
+    SP +1 _ RC
+    +6 RA +5 RB CTERN PC _FIND_4 _FIND_3
+_FIND_3:
+    _FIND_D0 +1 _ _FIND_D0
+    _FIND_D0 RC
+    +6 RA +5 RB CTERN PC _FIND_0 _FIND_5
+_FIND_4:
+    SP +2 _FIND_D0 _
+    SP RC DECC SP
+    $FIMMED RB
+    _FIND_D0 RA INCA +1 _ RA
+    ANDAB RC
+    $1 RA $t RB
+    SP +2 CTERN _
+    _FIND_D3 IP
+    #NEXT PC
+_FIND_5:
+    _FIND_D1 RA
+    SP +2 DECA _
+    SP RC DECC SP
+    SP +2 $0 _
+    _FIND_D3 IP
+    #NEXT PC
+_FIND_D0: _
+_FIND_D1: _
+_FIND_D2: _
+_FIND_D3: _
+
+BLWORD:
+    SP RC DECC SP
+    SP +2 HERE _
+    HERE +2 $0 _
+    HERE RC INCC +6
+    +5 +24
+_BLWORD_0:
+    IOKEY RA
+    RA _
+    BL RB
+    ALTB RC
+    +6 RA +5 RB
+    CTERN PC
+    _BLWORD_0 _BLWORD_1
+_BLWORD_1:
+    IOKEY RA
+    +5 RC INCC +2 RA _
+    BL RB
+    AGTB RC
+    +6 RA +5 RB
+    CTERN PC
+    _BLWORD_1 _BLWORD_2
+_BLWORD_2:
+    +-13 HERE
+    HERE RA DECA RA
+    SP +1 _ RB
+    SP +1 _ +2 ASUBB _
+    #NEXT PC
+
+CREATE:
+    HERE +2 HEAD _
+    HERE HEAD
+    HERE RC INCC HERE
+    IP +5 +5 IP #NEXT PC _ +1 #BLWORD +1 +1 +-5 IP
+    HERE +2 #DOVAR _
+    HERE RC INCC HERE
+    #NEXT PC
+
+TOCFA:
+    SP +1 _ RC
+    INCC RA
+    $FMASK RB ANDAB RB
+    SP +2 ADDAB _
+    #NEXT PC
+
+$CH0: 48
+
+DECTONUM:
+    SP +1 _ +1 _ RC +-2 RA
+    INCA _DECTONUM_D1
+    SP +2 $0 _
+    SP _DECTONUM_P1
+    SP _DECTONUM_P2
+_DECTONUM_0:
+    +6 RA +5 RB CTERN PC _DECTONUM_1 _DECTONUM_2
+_DECTONUM_1:
+    RC _DECTONUM_D0
+    _DECTONUM_D1 +1 _ RA
+    _DECTONUM_D1 RC INCC _DECTONUM_D1
+    $CH0 RB ASUBB _DECTONUM_D2
+    $1 RC
+_DECTONUM_P1: _ RA
+    ALSHC RB
+    ALSHC RA
+    ALSHC RA
+    ALSHC RA
+    ADDAB RA
+    _DECTONUM_D2 RB
+    ADDAB
+_DECTONUM_P2: _
+    _DECTONUM_D0 RC DECC RC
+    +2 PC _DECTONUM_0
+_DECTONUM_2:
+    #NEXT PC
+_DECTONUM_D0: _
+_DECTONUM_D1: _
+_DECTONUM_D2: _
+
+COMMA:
+    SP +3 HERE +2 _ _
+    HERE RC INCC HERE
+    SP RC INCC SP
+    #NEXT PC
+
+EXECUTE:
+    SP +1 _ RC
+    INCC +1 _ RA
+    $LMASK RB ANDAB RB
+    INCC RA
+    ADDAB RA
+    INCA W
+    SP RC INCC SP
+    W +1 _ PC
+
+LIT:
+    SP RC DECC SP IP +3 SP +2 _ _
+    IP RC INCC IP
+    #NEXT PC
+
+QUIT:
+    $SBASE SP
+    $RBASE RP
+    +4 IP #NEXT PC +1 #INTERPRET
+    +1 +-7
+
+ADD:
+    SP +1 _ RA
+    SP RC INCC SP
+    SP +1 _ RB
+    SP +2 ADDAB _
+    #NEXT PC
+
+LBRAC:
+    $0 STATE
+    #NEXT PC
+
+RBRAC:
+    $1 STATE
+    #NEXT PC
+
+SETHERE:
+    SP +1 _ HERE
+    #NEXT PC
+
+x_INTERPRET: 0
+    9 73 78 84 69 82 80 82 69 84
+#INTERPRET: DOCOL
+INTERPRET:
+    #BLWORD
+    #SETHERE
+    #FIND
+    +1 +1
+    STATE RC
+    +6 RA +5 RB CTERN PC _INTERPRET_3 _INTERPRET_0
+_INTERPRET_0:
+    SP +1 _ RC
+    SP RA INCA SP
+    +8 RA +7 RB CTERN IP
+    #NEXT PC _INTERPRET_1 _INTERPRET_2
+_INTERPRET_1:
+    #EXECUTE
+    #EXIT
+_INTERPRET_2:
+    #DECTONUM
+    #EXIT
+_INTERPRET_3:
+    SP +1 _ RC
+    INCC SP
+    +6 RA +5 RB CTERN PC _INTERPRET_4 _INTERPRET_5
+    #LIT
+_INTERPRET_4:
+    HERE +2 +-3 _
+    HERE RC INCC HERE
+    +4 IP
+    #NEXT PC _INTERPRET_6
+_INTERPRET_5:
+    RC RA
+    $1 RB EQAB RC
+    +8 RA +7 RB CTERN IP
+    #NEXT PC _INTERPRET_1 _INTERPRET_7
+_INTERPRET_6:
+    #DECTONUM
+_INTERPRET_7:
+    #COMMA
+    #EXIT
+_INTERPRET_D0: _
+
+x_QUIT: x_INTERPRET
+    4 81 85 73 84
+    #QUIT: QUIT
+x_AT: x_QUIT
+    1 64
+    #AT: AT
+x_BANG: x_AT
+    1 33
+    #BANG: BANG
+x_COMMA: x_BANG
+    1 44
+    #COMMA: COMMA
+x_PLUS: x_COMMA
+    1 43
+    #ADD: ADD
+x_LBRAC: x_PLUS
+    8193 91
+    #LBRAC: LBRAC
+x_RBRAC: x_LBRAC
+    1 93
+    #RBRAC: RBRAC
+x_MEMCMP: x_RBRAC
+    6 77 69 77 67 77 80
+    #MEMCMP: MEMCMP
+x_FIND: x_MEMCMP
+    4 70 73 78 68
+    #FIND: FIND
+x_CREATE: x_FIND
+    6 67 82 69 65 84 69
+    #CREATE: CREATE
+x_TOCFA: x_CREATE
+    4 62 67 70 65
+    #TOCFA: TOCFA
+x_DECTONUM: x_TOCFA
+    8 67 62 78 85 77 66 69 82
+    #DECTONUM: DECTONUM
+x_EXECUTE: x_DECTONUM
+    7 69 88 69 67 85 84 69
+    #EXECUTE: EXECUTE
+x_BLWORD: x_EXECUTE
+    9 82 69 65 68 95 87 79 82 68
+    #BLWORD: BLWORD
+x_SETHERE: x_BLWORD
+    7 83 69 84 72 69 82 69
+    #SETHERE: SETHERE
+x_LIT: x_SETHERE
+    4 36 76 73 84
+    DOVAR #LIT: LIT
+x_NEXT: x_LIT
+    5 36 78 69 88 84
+    DOVAR #NEXT: NEXT
+x_DOCON: x_NEXT
+    6 36 68 79 67 79 78
+    DOVAR #DOCON: DOCON
+x_DOCOL: x_DOCON
+    6 36 68 79 67 79 76
+    DOVAR #DOCOL: DOCOL
+x_DOVAR: x_DOCOL
+    6 36 68 79 86 65 82
+    DOVAR #DOVAR: DOVAR
+x_EXIT: x_DOVAR
+    5 36 69 88 73 84
+    DOVAR #EXIT: EXIT
+x_ZERO: x_EXIT
+    1 48
+    DOCON $0: 0
+x_ONE: x_ZERO
+    1 49
+    DOCON $1: 1
+x_TWO: x_ONE
+    1 50
+    DOCON $2: 2
+x_BL: x_TWO
+    2 66 76
+    DOCON BL: 32
+x_TRUE: x_BL
+    4 84 82 85 69
+    DOCON $t: -1
+x_FMASK: x_TRUE
+    6 70 77 65 83 75
+    DOCON $FMASK: 4095
+x_FIMMED: x_FMASK
+    9 70 95 73 77 77 69 68 73 65
+    DOCON $FIMMED: 8192
+x_FHIDDEN: x_FIMMED
+    8 70 95 72 73 68 68 69 78
+    DOCON $FHIDDEN: 4096
+x_SP: x_FHIDDEN
+    3 36 83 80
+    DOVAR SP: 256
+x_RP: x_SP
+    3 36 82 80
+    DOVAR RP: 128
+x_IP: x_RP
+    3 36 73 80
+    DOVAR IP: _BOOT
+x_W: x_IP
+    2 36 87
+    DOVAR W: _
+x_HERE: x_W
+    4 72 69 82 69
+    DOCON HERE: _USER
+x_STATE: x_HERE
+    5 83 84 65 84 69
+    DOVAR STATE: 0
+x_HEAD: x_STATE
+    4 72 69 65 68
+    DOVAR HEAD: x_HEAD
+
+_USER:
