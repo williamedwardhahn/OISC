@@ -46,7 +46,8 @@ enum {
     CZNEQ,
     AZNEQ,
     IOEMIT = 0x20,
-    IOKEY
+    IOKEY,
+    IOPRINTD
 };
 
 int main(int argc, char *argv[]) {
@@ -176,6 +177,9 @@ int main(int argc, char *argv[]) {
         switch (d) {
             case IOEMIT:
                 printf("%c",v);
+                break;
+            case IOPRINTD:
+                printf("%d ", v);
                 break;
         }
         fprintf(stderr, "%04x: %04x (%04x) %04x\n", PC-2, s, v, d);
