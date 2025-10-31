@@ -639,7 +639,7 @@ One      1,L L,S                    # Push 1
 
 ### Logic Words
 ```
-Not      S,A -1,L L,B Mult,A 1,L L,B Add,S  # (x → -x+1)
+Not      1,L L,S Swap -  # (x → -x+1)
 Negate   S,A -1,L L,B Mult,S                # (x → -x)
 ```
 
