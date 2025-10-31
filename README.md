@@ -1,7 +1,6 @@
 # MPCR OISC - One Instruction Set Computer
 [MPCR OISC Code Here](https://colab.research.google.com/drive/1YogUeyU0JVNeDt9oN8doqP0FAqXexUbZ?usp=sharing)
 
-## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Architecture Overview](#architecture-overview)
