@@ -33,7 +33,7 @@
 
 ## Introduction
 
-The **MPCR OISC** (Minimal Programmable Copy-Paste Register One Instruction Set Computer) is a **One Instruction Set Computer** that uses **only one native instruction**:
+The **MPCR OISC** (MPCR One Instruction Set Computer) is a **One Instruction Set Computer** that uses **only one native instruction**:
 
 ```
 M[j] = M[i]
