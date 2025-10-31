@@ -1,8 +1,5 @@
-## MPCR OISC - One Instruction Set Computer
-[MPCR OISC Code Here](https://colab.research.google.com/drive/1JP9zaq6ZKrIG2V8dFxc2Cjq6v1abyb4E?usp=sharing)
-
-
-# MPCR OISC Documentation
+# MPCR OISC - One Instruction Set Computer
+[MPCR OISC Code Here](https://colab.research.google.com/drive/1YogUeyU0JVNeDt9oN8doqP0FAqXexUbZ?usp=sharing)
 
 ## Table of Contents
 
